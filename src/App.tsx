@@ -14,7 +14,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/appointments" element={<Appointments clientName="Limitless MotorWorks" />} />
       <Route path="/confirmation" element={<Confirmation />} />
-      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/contact" element={<ContactUs clientName="Limitless MotorWorks" />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/autoparts" element={<AutoParts />} />
