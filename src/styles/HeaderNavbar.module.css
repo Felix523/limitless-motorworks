@@ -1,65 +1,47 @@
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 15%;
-  padding: var(--mantine-spacing-md);
-  display: flex;
-  flex-direction: column;
-  background-color: var(--mantine-color-blue-filled);
-  z-index: 1000;
-}
-
-.navbarMain {
-  flex: 1;
-}
-
 .header {
-  padding-bottom: var(--mantine-spacing-md);
-  margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
-  border-bottom: 1px solid var(--mantine-color-blue-7);
+  height: 8vh;
+  margin-bottom: 5vh;
+  background-color: var(--mantine-color-body);
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
 }
 
-.footer {
-  padding-top: var(--mantine-spacing-md);
-  margin-top: var(--mantine-spacing-md);
-  border-top: 1px solid var(--mantine-color-blue-7);
-}
-
-.version {
-  background-color: var(--mantine-color-blue-7);
-  color: var(--mantine-color-white);
+.inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: var(--mantine-font-size-sm);
-  color: var(--mantine-color-white);
-  padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  display: block;
+  line-height: 1;
+  padding: 1.5vh 2vh;
   border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
   font-weight: 500;
 
   @mixin hover {
-    background-color: var(--mantine-color-blue-7);
-    color: var(--mantine-color-white);
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  }
 
-    .linkIcon {
-      color: var(--mantine-color-white);
-    }
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: var(--mantine-color-blue-filled);
+    color: var(--mantine-color-white);
   }
 }
 
-.linkIcon {
-  color: var(--mantine-color-blue-1);
-  margin-right: var(--mantine-spacing-sm);
-  width: 25px;
-  height: 25px;
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: auto; /* Push the logo to the left */
 }
 
-.navLinkContent {
-  display: flex;
-  align-items: center; /* Ensure icon and text are inline */
+.logo img {
+  display: block;
+  height: 6vh;
+  max-height: 50px;
+  width: auto;
 }

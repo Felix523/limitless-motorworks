@@ -4,17 +4,17 @@ import HeaderNavbar from "../components/HeaderNavbar";
 
 const AutoParts = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <div>
       <HeaderNavbar />
-      <div style={{ marginLeft: "6%", width: "100%" }}>
-        <Title ta="center" pt={50} pb={10}>
+      <div>
+        <Title ta="center" pb={10}>
           Limitless AutoParts
         </Title>
         <Text ta="center">
           If you are interested in buying parts for your car
         </Text>
         <Text ta="center">
-          You can check out Limitless AutoParts on ebay to see what we have in
+          You can search for Limitless AutoParts on ebay to see what we have in
           stock
         </Text>
         <Text ta="center">
@@ -22,7 +22,7 @@ const AutoParts = () => {
           all makes and models
         </Text>
         <Center>
-          <Anchor ta="center" href="https://ebay.com" target="_blank">
+          <Anchor ta="center" pt={20} href="https://ebay.com" target="_blank">
             CHECK OUT OUR EBAY STORE
           </Anchor>
         </Center>

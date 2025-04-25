@@ -19,9 +19,11 @@ const Home = (): JSX.Element => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    // <div style={{ display: "flex" }}>
+    <div>
       <HeaderNavbar />
-      <div style={{ marginLeft: "6%", width: "100%" }}>
+      <div>
+      {/* <div style={{ marginLeft: "6%", width: "100%" }}> */}
         <Container size="lg" py={10} pt={50} ta="center">
           <Text size="lg" c="dimmed" mb={30} pb={30}>
             Quality Repairs and maintenance for your vehicle.

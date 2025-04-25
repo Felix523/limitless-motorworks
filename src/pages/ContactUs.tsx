@@ -78,9 +78,8 @@ const ContactUs: React.FC<{ clientName: string }> = ({ clientName }) => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div>
       <HeaderNavbar />
-      <div style={{ marginLeft: "6%", width: "100%" }}>
         <div className={styles.wrapper}>
           <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
             <div>
@@ -157,7 +156,6 @@ const ContactUs: React.FC<{ clientName: string }> = ({ clientName }) => {
             </div>
           </SimpleGrid>
         </div>
-      </div>
     </div>
   );
 };

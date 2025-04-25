@@ -1,92 +1,53 @@
-import React, { useState } from "react";
-import {
-  AppShell,
-  Group,
-  Burger,
-  Image,
-  NavLink,
-  AppShellFooter,
-  Text,
-} from "@mantine/core";
-import MotorWorks from "../assets/MotorWorks.png";
+import { Anchor, Burger, Container, Drawer, Group, Image } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link } from "react-router-dom";
-import {
-  IconAddressBook,
-  IconCalendarBolt,
-  IconEngine,
-  IconHome,
-  // IconInfoCircle,
-  // IconLogin,
-} from "@tabler/icons-react";
+import MotorWorks from "../assets/MotorWorks.png";
 import styles from "../styles/HeaderNavbar.module.css";
+import { Link } from "react-router-dom";
 
-const data = [
-  { link: "/", label: "Home", icon: IconHome },
-  { link: "/appointments", label: "Appointments", icon: IconCalendarBolt },
-  { link: "/contact", label: "Contact", icon: IconAddressBook },
-  { link: "/autoparts", label: "Buy Parts", icon: IconEngine },
-  // { link: '/about', label: 'About Us', icon: IconInfoCircle },
-  // { link: '/login', label: 'Login', icon: IconLogin },
+const links = [
+  { link: "/", label: "Home" },
+  { link: "/appointments", label: "Appointments" },
+  { link: "/autoparts", label: "Buy Parts" },
+  { link: "/contact", label: "Contact" },
+  // { link: '/about', label: 'About Us'},
+  // { link: '/login', label: 'Login'},
 ];
 
 const HeaderNavbar = () => {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle }] = useDisclosure(false);
 
-  const links = data.map((item) => (
-    <NavLink
+  const items = links.map((link) => (
+    <Link
+      key={link.label}
+      to={link.link}
       className={styles.link}
-      key={item.label}
-      label={
-        <div className={styles.navLinkContent}>
-          <item.icon className={styles.linkIcon} stroke={1.5} />
-          <span>{item.label}</span>
-        </div>
-      }
-      to={item.link}
-      component={Link}
-    />
+    >
+      {link.label}
+    </Link>
   ));
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.navbarMain}>
-        <Group className={styles.header} justify="space-between">
-          <Image src={MotorWorks} height={40} style={{ color: "white" }} />
+    <header className={styles.header}>
+      <Container size="md" className={styles.inner}>
+        <Anchor component={Link} to="/" className={styles.logo}>
+          <Image src={MotorWorks} alt="MotorWorks Logo" h={50} />
+        </Anchor>
+        <Group gap={5} visibleFrom="xs">
+          {items}
         </Group>
-        <div className={styles.links}>{links}</div>
-      </div>
-    </nav>
+        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Drawer
+          opened={opened}
+          onClose={toggle}
+          title="Menu"
+          padding="md"
+          size="sm"
+        >
+          {items}
+        </Drawer>
+      </Container>
+    </header>
   );
 };
 
 export default HeaderNavbar;
-
-// return (
-//   <AppShell
-//     header={{ height: 50 }}
-//     navbar={{
-//       width: { base: 240, sm: 200 },
-//       breakpoint: "sm",
-//     }}
-//   >
-//     <AppShell.Header>
-//       <Group h="100%" px="md">
-//         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-//         <Image src={MotorWorks} height={30} alt="Limitless MotorWorks Logo" />
-//         Limitless MotorWorks
-//       </Group>
-//     </AppShell.Header>
-//     <AppShell.Navbar p="md">
-//       <NavLink label="Home" to="/" component={Link} />
-//       <NavLink label="Appointments" to="/appointments" component={Link} />
-//       <NavLink label="Contact" to="/contact" component={Link} />
-//       <NavLink label="Buy Parts" to="/autoparts" component={Link} />
-//       {/* <NavLink label="About Us" to="/about" component={Link} /> */}
-//       {/* <NavLink label="Login" to="/login" component={Link} /> */}
-//     </AppShell.Navbar>
-//     <AppShellFooter>
-//       <Text ta="center">© 2025 Limitless MotorWorks LLC</Text>
-//     </AppShellFooter>
-//   </AppShell>
-// );

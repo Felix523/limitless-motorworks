@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Button,
+  Divider,
   Fieldset,
   NumberInput,
   Select,
@@ -158,10 +159,11 @@ const Appointments: React.FC<{ clientName: string }> = ({ clientName }) => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div>
+     {/* <div style={{ display: "flex" }}> */}
       <HeaderNavbar />
-      <div style={{ marginLeft: "6%", width: "50%", margin: "auto" }}>
-        <Title order={2} ta="center" pt={50} pb={10}>
+      <div style={{ width: "50%", margin: "auto" }}>
+        <Title order={2} ta="center" pb={10}>
           Set an appointment
         </Title>
         <Title order={6} ta="right" pb={10}>
@@ -170,7 +172,7 @@ const Appointments: React.FC<{ clientName: string }> = ({ clientName }) => {
           </Text>
           indicates required fields
         </Title>
-        <Fieldset legend="Personal Information">
+        <Fieldset legend="Personal Information" mb={10}>
           <TextInput
             value={formData.firstName}
             onChange={(event) =>
@@ -204,7 +206,7 @@ const Appointments: React.FC<{ clientName: string }> = ({ clientName }) => {
             required={true}
           />
         </Fieldset>
-        <Fieldset legend="Vehicle Information">
+        <Fieldset legend="Vehicle Information" mb={10}>
           <NumberInput
             value={formData.year}
             onChange={(value) =>

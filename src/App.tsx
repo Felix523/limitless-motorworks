@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import AutoParts from "./pages/AutoParts";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/autoparts" element={<AutoParts />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
